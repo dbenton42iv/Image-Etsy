@@ -40,12 +40,49 @@ def split_header(tsubs):
     for i in w1: out[i]=move(i,0,lines[0][0]-top1)
     for i in w2: out[i]=move(i,left-x2,lines[1][0]-top2)
     return out
+STRIP_NUMBERS={'Mountains_to_Sea_Trail'}
+def strip_numbers(tsubs):
+    """Middle column rows read 'N · NAME': drop the number and the middle dot, re-center NAME."""
+    from svgpathtools import parse_path
+    cols=runs([(b[0],b[2]) for _,_,b in tsubs],0,11000,120)
+    rows=runs([(b[1],b[3]) for _,_,b in tsubs],0,8000,20)
+    c1=cols[1]; center=(c1[0]+c1[1])/2
+    keep=[True]*len(tsubs); shift={}
+    for r0,r1 in rows[1:]:                                    # body rows only
+        idx=[i for i,(g,d,b) in enumerate(tsubs) if c1[0]-1<=(b[0]+b[2])/2<=c1[1]+1 and r0-1<=(b[1]+b[3])/2<=r1+1]
+        hs=sorted(tsubs[i][2][3]-tsubs[i][2][1] for i in idx); cap=hs[len(hs)//2]
+        def inside_other(i):
+            b=tsubs[i][2]
+            return any(j!=i and tsubs[j][2][0]<=b[0] and tsubs[j][2][2]>=b[2] and tsubs[j][2][1]<=b[1] and tsubs[j][2][3]>=b[3] for j in idx)
+        def spaced(i):                                       # the separator has a word space on both sides
+            b=tsubs[i][2]; others=[tsubs[j][2] for j in idx if j!=i]
+            gl=min([b[0]-o[2] for o in others if o[2]<=b[0]+1]+[1e9]); gr=min([o[0]-b[2] for o in others if o[0]>=b[2]-1]+[1e9])
+            return gl>cap*0.45 and gr>cap*0.45 and gl<1e9 and gr<1e9
+        dots=[i for i in idx if (tsubs[i][2][3]-tsubs[i][2][1])<cap*0.4 and (tsubs[i][2][2]-tsubs[i][2][0])<cap*0.4
+              and abs((tsubs[i][2][1]+tsubs[i][2][3])/2-(r0+r1)/2)<cap*0.35 and not inside_other(i) and spaced(i)]
+        if not dots: continue                                   # e.g. last row has no number
+        dot=min(dots,key=lambda i:tsubs[i][2][0])                # leftmost free-standing dot = the separator
+        dx_dot=tsubs[dot][2][2]
+        drop=[i for i in idx if tsubs[i][2][2]<=dx_dot+1]
+        name=[i for i in idx if i not in drop]
+        for i in drop: keep[i]=False
+        nx0=min(tsubs[i][2][0] for i in name); nx1=max(tsubs[i][2][2] for i in name)
+        dx=center-(nx0+nx1)/2
+        for i in name: shift[i]=dx
+    out=[]
+    for i,(g,d,b) in enumerate(tsubs):
+        if not keep[i]: continue
+        if i in shift:
+            dx=shift[i]; d=parse_path(d).translated(complex(dx*10,0)).d(); b=(b[0]+dx,b[1],b[2]+dx,b[3])
+        out.append((g,d,b))
+    return out
 def load(m):
     p=m+'.t.pkl'
     if os.path.exists(p): return pickle.load(open(p,'rb'))
     head,groups,cr=split(m); r=TABLE[m]
     tsubs=[(gi,d,bb) for gi,(a,subs) in enumerate(groups) for d,bb in subs if inside(bb,r)]
     if m in SPLIT_HEADER: tsubs=split_header(tsubs)
+    if m in STRIP_NUMBERS: tsubs=strip_numbers(tsubs)
     cols=runs([(b[0],b[2]) for _,_,b in tsubs],0,11000,120)
     rows=runs([(b[1],b[3]) for _,_,b in tsubs],0,8000,20)
     cl={}

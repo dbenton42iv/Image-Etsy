@@ -50,13 +50,15 @@ sized for the smallest print that file is meant for, so they stay readable (targ
 6 pt, copyright about 5 pt at that size). Tables keep their column layout and never overlap the
 trail or labels; where a table needed more room it moved slightly (MST's table extends lower).
   File      sized for   Bartram   Art Loeb   MST      (table scale vs the master)
-  7x5       5x7         1.4x      1.3x       1.4x     MST table ~4.9 pt (largest that fits)
-  24x18     6x8         1.3x      1.1x       1.4x
+  7x5       5x7         1.4x      1.3x       1.5x     MST table ~5.3 pt (largest that fits)
+  24x18     6x8         1.3x      1.1x       1.5x
   A1        A5          1.2x      1.1x       1.4x
   20x16     8x10        1.1x      1.0x       1.3x
   14x11     11x14       1.0x      1.0x       1.0x
   36x24     8x12        1.0x      1.0x       1.0x
 Copyright line: about 5 pt at each file's smallest print size.
+Art Loeb: DAVIDSON RIVER header on two lines; table right edge aligned with the copyright line.
+MST: segment numbers ("1 ·") removed from the table; the numbered markers on the map remain.
 4x6 and 4x5 prints (from the 36x24 / 20x16 files) are too small for a mileage table to be
 readable (about 3 pt). The buyer instructions recommend 5x7 or larger for these maps.
 Source masters in _Masters_2026 are unchanged; the per-size layouts are generated from them.

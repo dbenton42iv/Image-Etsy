@@ -2,7 +2,7 @@ from plan import *
 import pickle
 CHOICE={'Bartram_Trail':{'7x5':1.4,'14x11':1.0,'20x16':1.1,'24x18':1.3,'36x24':1.0,'A1_landscape':1.2},
         'Art_Loeb_Trail':{'7x5':1.3,'14x11':1.0,'20x16':1.0,'24x18':1.1,'36x24':1.0,'A1_landscape':1.1},
-        'Mountains_to_Sea_Trail':{'7x5':1.4,'14x11':1.0,'20x16':1.3,'24x18':1.4,'36x24':1.0,'A1_landscape':1.4}}
+        'Mountains_to_Sea_Trail':{'7x5':1.5,'14x11':1.0,'20x16':1.3,'24x18':1.5,'36x24':1.0,'A1_landscape':1.4}}
 DES={'Bartram_Trail':'Bartram_Trail','Art_Loeb_Trail':'Art_Loeb_Trail','Mountains_to_Sea_Trail':'Mountains_to_Sea_Trail_Map'}
 PX={'7x5':(2100,1500),'14x11':(4200,3300),'20x16':(6000,4800),'24x18':(7200,5400),'36x24':(10800,7200),'A1_landscape':(9933,7016)}
 def darken(s):
