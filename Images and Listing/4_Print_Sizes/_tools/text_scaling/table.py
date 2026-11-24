@@ -30,8 +30,8 @@ def load(m):
     rest=[(a,' '.join(d for d,bb in subs if not inside(bb,r))) for a,subs in groups]
     D=dict(head=head,attrs=[a for a,_ in groups],rest=rest,cl=cl,cols=cols,rows=rows,cr=cr)
     pickle.dump(D,open(p,'wb')); return D
-def layout(D,f,g,lf,top):
-    cols,rows=D['cols'],D['rows']; w=[z-a for a,z in cols]; Rr=cols[-1][1]; T=rows[0][0]
+def layout(D,f,g,lf,top,Rr=None):
+    cols,rows=D['cols'],D['rows']; w=[z-a for a,z in cols]; Rr=cols[-1][1] if Rr is None else Rr; T=rows[0][0]
     L3n=Rr-w[2]*f; A2n=L3n-g-w[1]*f/2; R1n=A2n-w[1]*f/2-g
     A=[(cols[0][1],R1n),((cols[1][0]+cols[1][1])/2,A2n),(cols[2][0],L3n)]
     M={}
@@ -44,11 +44,11 @@ def layout(D,f,g,lf,top):
         M[(gi,c,rr)]=(tx,ty)
     bbox=(R1n-w[0]*f, top, Rr, top+(rows[-1][1]-T)*f*lf)  # approx
     return M,bbox
-def svg(m,D,f=1,g=None,lf=1,top=None,fc=1,cdy=0,cmap=None,parts=('rest','table','copy')):
+def svg(m,D,f=1,g=None,lf=1,top=None,fc=1,cdy=0,cmap=None,parts=('rest','table','copy'),Rr=None):
     cols,rows=D['cols'],D['rows']
     if g is None: g=cols[1][0]-cols[0][1]
     if top is None: top=rows[0][0]
-    M,_=layout(D,f,g,lf,top)
+    M,_=layout(D,f,g,lf,top,Rr)
     A=lambda a: cmap(a) if cmap else a
     o=[D['head']]
     if 'rest' in parts:
