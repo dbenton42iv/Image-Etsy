@@ -15,16 +15,20 @@ def runs(intervals, lo, hi, merge):
             i=j
         else: i+=1
     return [(lo+x0,lo+x1) for x0,x1 in out]
-SPLIT_HEADER={'Art_Loeb_Trail'}
+SPLIT_HEADER={'Art_Loeb_Trail','Mountains_to_Sea_Trail'}
 def split_header(tsubs):
     """Put the last column's one-line header (e.g. DAVIDSON RIVER) on two lines, left-aligned,
     matching the two-line first-column header (CAMP DANIEL / BOONE)."""
     from svgpathtools import parse_path
     cols=runs([(b[0],b[2]) for _,_,b in tsubs],0,11000,120)
     ytop=min(b[1] for _,_,b in tsubs)
-    hdr=lambda b: b[1]<ytop+260
+    r0=runs([(b[1],b[3]) for _,_,b in tsubs],0,8000,20)[0]      # header row only
+    hdr=lambda b: b[1]>=r0[0]-1 and b[3]<=r0[1]+1
     c0=[b for _,_,b in tsubs if hdr(b) and b[2]<=cols[0][1]+1]
-    lines=runs([(b[1],b[3]) for b in c0],0,8000,5)          # two header lines in column 1
+    lines=runs([(b[1],b[3]) for b in c0],0,8000,5)          # header lines in column 1
+    if len(lines)==1:                                        # one-line headers (MST): new line goes above,
+        cap=lines[0][1]-lines[0][0]                          # second word stays on the header line
+        lines=[(lines[0][0]-round(1.68*cap),lines[0][0]-round(0.68*cap)),lines[0]]   # Art Loeb header leading
     assert len(lines)==2, lines
     last=[i for i,(g,d,b) in enumerate(tsubs) if hdr(b) and b[0]>=cols[-1][0]-1]
     xs=runs([(tsubs[i][2][0],tsubs[i][2][2]) for i in last],0,11000,25)   # words
@@ -151,7 +155,7 @@ def grow(D):
     h=h.replace(vb.group(0),f'viewBox="{vb.group(1)} {vb.group(2)} {vb.group(3)} {H+EXTRA}"')
     h=_re.sub(r'height="[\d.]+in"',f'height="{(H+EXTRA)/600:.4f}in"',h,1)
     D2['head']=h; D2['nh']=NH.get(D2.get('m'),1); return D2
-NH={'Bartram_Trail':2,'Art_Loeb_Trail':1,'Mountains_to_Sea_Trail':1}
+NH={'Bartram_Trail':2,'Art_Loeb_Trail':1,'Mountains_to_Sea_Trail':2}
 def fit2(m,D,f,g,lf,pad=150):
     """table may extend below; copyright is re-placed later. Returns top or None."""
     rest=render(svg(m,D,parts=('rest',)),10412/S); H=rest.height

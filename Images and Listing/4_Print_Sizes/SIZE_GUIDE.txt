@@ -58,7 +58,8 @@ trail or labels; where a table needed more room it moved slightly (MST's table e
   36x24     8x12        1.0x      1.0x       1.0x
 Copyright line: about 5 pt at each file's smallest print size.
 Art Loeb: DAVIDSON RIVER header on two lines; table right edge aligned with the copyright line.
-MST: segment numbers ("1 ·") removed from the table; the numbered markers on the map remain.
+MST: segment numbers ("1 ·") removed from the table; JOCKEY'S RIDGE header on two lines; table right edge
+aligned with the copyright line. The numbered markers on the map remain.
 4x6 and 4x5 prints (from the 36x24 / 20x16 files) are too small for a mileage table to be
 readable (about 3 pt). The buyer instructions recommend 5x7 or larger for these maps.
 Source masters in _Masters_2026 are unchanged; the per-size layouts are generated from them.

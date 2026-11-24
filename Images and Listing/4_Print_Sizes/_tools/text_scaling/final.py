@@ -14,7 +14,7 @@ def darken(s):
     s=s.replace('fill="#d6d9da" stroke="none"','fill="#a7a9ac" stroke="none"')
     s=s.replace('fill="#000000" stroke="none"','fill="#000000" stroke="#000000" stroke-width="6" stroke-linejoin="round"')
     return s
-ALIGN_RIGHT={'Art_Loeb_Trail'}   # table right edge = copyright right edge
+ALIGN_RIGHT={'Art_Loeb_Trail','Mountains_to_Sea_Trail'}   # table right edge = copyright right edge
 CANDS=pickle.load(open('cands.pkl','rb'))
 def build_file(m,key,dark):
     D0=dict(load(m)); D0['m']=m
