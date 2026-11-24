@@ -1,0 +1,88 @@
+LISTING PHOTOS — upload in this order (01 = thumbnail). Built from 6_Listing_Mockups on 2026-11-24.
+
+dl-art_loeb_trail
+  01_thumbnail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_01_framed_oak.jpg
+  02_in-room.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_03_detail.jpg
+  04_what-you-get.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_04_digital_sizes.jpg
+  05_lifestyle.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_02_lifestyle.jpg
+  06_in-room-2.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_06_hiking_closet_b.jpg
+  07_scale-36x24.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_07_hiking_closet_36x24.jpg
+
+print-art-loeb
+  01_thumbnail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_01_framed_oak.jpg
+  02_in-room.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_03_detail.jpg
+  04_lifestyle.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_02_lifestyle.jpg
+  05_in-room-2.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_06_hiking_closet_b.jpg
+  06_scale-36x24.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_07_hiking_closet_36x24.jpg
+
+framed-art-loeb
+  01_thumbnail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_01_framed_oak.jpg
+  02_in-room.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_03_detail.jpg
+  04_lifestyle.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_02_lifestyle.jpg
+  05_in-room-2.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_06_hiking_closet_b.jpg
+  06_scale-36x24.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_07_hiking_closet_36x24.jpg
+
+dl-bartram_trail
+  01_thumbnail.jpg   <- Bartram_Trail/Bartram_Trail_01_framed_oak.jpg
+  02_in-room.jpg   <- Bartram_Trail/Bartram_Trail_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Bartram_Trail/Bartram_Trail_03_detail.jpg
+  04_what-you-get.jpg   <- Bartram_Trail/Bartram_Trail_04_digital_sizes.jpg
+  05_lifestyle.jpg   <- Bartram_Trail/Bartram_Trail_02_lifestyle.jpg
+  06_in-room-2.jpg   <- Bartram_Trail/Bartram_Trail_06_hiking_closet_b.jpg
+  07_scale-36x24.jpg   <- Bartram_Trail/Bartram_Trail_07_hiking_closet_36x24.jpg
+
+print-bartram
+  01_thumbnail.jpg   <- Bartram_Trail/Bartram_Trail_01_framed_oak.jpg
+  02_in-room.jpg   <- Bartram_Trail/Bartram_Trail_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Bartram_Trail/Bartram_Trail_03_detail.jpg
+  04_lifestyle.jpg   <- Bartram_Trail/Bartram_Trail_02_lifestyle.jpg
+  05_in-room-2.jpg   <- Bartram_Trail/Bartram_Trail_06_hiking_closet_b.jpg
+  06_scale-36x24.jpg   <- Bartram_Trail/Bartram_Trail_07_hiking_closet_36x24.jpg
+
+framed-bartram
+  01_thumbnail.jpg   <- Bartram_Trail/Bartram_Trail_01_framed_oak.jpg
+  02_in-room.jpg   <- Bartram_Trail/Bartram_Trail_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Bartram_Trail/Bartram_Trail_03_detail.jpg
+  04_lifestyle.jpg   <- Bartram_Trail/Bartram_Trail_02_lifestyle.jpg
+  05_in-room-2.jpg   <- Bartram_Trail/Bartram_Trail_06_hiking_closet_b.jpg
+  06_scale-36x24.jpg   <- Bartram_Trail/Bartram_Trail_07_hiking_closet_36x24.jpg
+
+dl-mountains_to_sea_trail_map
+  01_thumbnail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_01_framed_oak.jpg
+  02_in-room.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_03_detail.jpg
+  04_what-you-get.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_04_digital_sizes.jpg
+  05_lifestyle.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_02_lifestyle.jpg
+  06_in-room-2.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_06_hiking_closet_b.jpg
+  07_scale-36x24.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_07_hiking_closet_36x24.jpg
+
+print-mst-map
+  01_thumbnail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_01_framed_oak.jpg
+  02_in-room.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_03_detail.jpg
+  04_lifestyle.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_02_lifestyle.jpg
+  05_in-room-2.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_06_hiking_closet_b.jpg
+  06_scale-36x24.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_07_hiking_closet_36x24.jpg
+
+framed-mst-map
+  01_thumbnail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_01_framed_oak.jpg
+  02_in-room.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_05_hiking_closet_a.jpg
+  03_detail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_03_detail.jpg
+  04_lifestyle.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_02_lifestyle.jpg
+  05_in-room-2.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_06_hiking_closet_b.jpg
+  06_scale-36x24.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_07_hiking_closet_36x24.jpg
+
+dl-bundle-carolina-trail-maps
+  01_thumbnail.jpg   <- _Bundles/Bundle_Carolina_Trail_Maps.jpg
+  02_Art_Loeb_Trail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_01_framed_oak.jpg
+  03_Bartram_Trail.jpg   <- Bartram_Trail/Bartram_Trail_01_framed_oak.jpg
+  04_Mountains_to_Sea_Trail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_01_framed_oak.jpg
+  05_Art_Loeb_Trail_detail.jpg   <- Art_Loeb_Trail/Art_Loeb_Trail_03_detail.jpg
+  06_Bartram_Trail_detail.jpg   <- Bartram_Trail/Bartram_Trail_03_detail.jpg
+  07_Mountains_to_Sea_Trail_detail.jpg   <- Mountains_to_Sea_Trail_Map/Mountains_to_Sea_Trail_Map_03_detail.jpg
+
+Print listings (print-*, framed-*) leave out the "Instant Download" card; frames shown in
+unframed-print photos are styling only (frame not included).
