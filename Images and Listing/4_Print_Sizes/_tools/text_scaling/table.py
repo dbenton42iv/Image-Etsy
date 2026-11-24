@@ -15,11 +15,37 @@ def runs(intervals, lo, hi, merge):
             i=j
         else: i+=1
     return [(lo+x0,lo+x1) for x0,x1 in out]
+SPLIT_HEADER={'Art_Loeb_Trail'}
+def split_header(tsubs):
+    """Put the last column's one-line header (e.g. DAVIDSON RIVER) on two lines, left-aligned,
+    matching the two-line first-column header (CAMP DANIEL / BOONE)."""
+    from svgpathtools import parse_path
+    cols=runs([(b[0],b[2]) for _,_,b in tsubs],0,11000,120)
+    ytop=min(b[1] for _,_,b in tsubs)
+    hdr=lambda b: b[1]<ytop+260
+    c0=[b for _,_,b in tsubs if hdr(b) and b[2]<=cols[0][1]+1]
+    lines=runs([(b[1],b[3]) for b in c0],0,8000,5)          # two header lines in column 1
+    assert len(lines)==2, lines
+    last=[i for i,(g,d,b) in enumerate(tsubs) if hdr(b) and b[0]>=cols[-1][0]-1]
+    xs=runs([(tsubs[i][2][0],tsubs[i][2][2]) for i in last],0,11000,25)   # words
+    w1=[i for i in last if tsubs[i][2][2]<=xs[0][1]+1]; w2=[i for i in last if i not in w1]
+    left=xs[0][0]
+    def move(i,dx,dy):
+        g,d,b=tsubs[i]
+        p=parse_path(d).translated(complex(dx*10,-dy*10))
+        return (g,p.d(),(b[0]+dx,b[1]+dy,b[2]+dx,b[3]+dy))
+    top1=min(tsubs[i][2][1] for i in w1); top2=min(tsubs[i][2][1] for i in w2)
+    x2=min(tsubs[i][2][0] for i in w2)
+    out=list(tsubs)
+    for i in w1: out[i]=move(i,0,lines[0][0]-top1)
+    for i in w2: out[i]=move(i,left-x2,lines[1][0]-top2)
+    return out
 def load(m):
     p=m+'.t.pkl'
     if os.path.exists(p): return pickle.load(open(p,'rb'))
     head,groups,cr=split(m); r=TABLE[m]
     tsubs=[(gi,d,bb) for gi,(a,subs) in enumerate(groups) for d,bb in subs if inside(bb,r)]
+    if m in SPLIT_HEADER: tsubs=split_header(tsubs)
     cols=runs([(b[0],b[2]) for _,_,b in tsubs],0,11000,120)
     rows=runs([(b[1],b[3]) for _,_,b in tsubs],0,8000,20)
     cl={}
@@ -31,7 +57,7 @@ def load(m):
     D=dict(head=head,attrs=[a for a,_ in groups],rest=rest,cl=cl,cols=cols,rows=rows,cr=cr)
     pickle.dump(D,open(p,'wb')); return D
 def layout(D,f,g,lf,top,Rr=None):
-    cols,rows=D['cols'],D['rows']; w=[z-a for a,z in cols]; Rr=cols[-1][1] if Rr is None else Rr; T=rows[0][0]
+    cols,rows=D['cols'],D['rows']; w=[z-a for a,z in cols]; Rr=(D.get('Rr') or cols[-1][1]) if Rr is None else Rr; T=rows[0][0]
     L3n=Rr-w[2]*f; A2n=L3n-g-w[1]*f/2; R1n=A2n-w[1]*f/2-g
     A=[(cols[0][1],R1n),((cols[1][0]+cols[1][1])/2,A2n),(cols[2][0],L3n)]
     M={}

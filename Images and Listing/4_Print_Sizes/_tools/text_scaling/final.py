@@ -14,15 +14,17 @@ def darken(s):
     s=s.replace('fill="#d6d9da" stroke="none"','fill="#a7a9ac" stroke="none"')
     s=s.replace('fill="#000000" stroke="none"','fill="#000000" stroke="#000000" stroke-width="6" stroke-linejoin="round"')
     return s
-ALIGN_TO_COPYRIGHT={('Art_Loeb_Trail','7x5')}
+ALIGN_RIGHT={'Art_Loeb_Trail'}   # table right edge = copyright right edge
 CANDS=pickle.load(open('cands.pkl','rb'))
 def build_file(m,key,dark):
-    D0=dict(load(m)); D0['m']=m; D=grow(D0); f=CHOICE[m][key]
+    D0=dict(load(m)); D0['m']=m
+    if m in ALIGN_RIGHT: D0['Rr']=CR[m][2]
+    D=grow(D0); f=CHOICE[m][key]
     r=next(c for c in CANDS[m] if abs(c['f']-f)<1e-6)
     file=next(x for x in FILES if x[0]==key)
     k=pts(m,r['bbox'],file)
     fc=min(2.4,max(1.0,5.2/(48*k*72/.66)))     # copyright ~5pt at smallest size
-    Rr=CR[m][2] if (m,key) in ALIGN_TO_COPYRIGHT else None
+    Rr=None
     s=svg(m,D,f,r['g'] or G,r['lf'],top=r['top'],fc=fc,cdy=r['cdy'],Rr=Rr)
     if dark: s=darken(s)
     W,H=PX[key]; mg=round(file[3]*min(W,H))
