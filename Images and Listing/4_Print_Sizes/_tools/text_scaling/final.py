@@ -15,6 +15,7 @@ def darken(s):
     s=s.replace('fill="#000000" stroke="none"','fill="#000000" stroke="#000000" stroke-width="6" stroke-linejoin="round"')
     return s
 ALIGN_RIGHT={'Art_Loeb_Trail','Mountains_to_Sea_Trail'}   # table right edge = copyright right edge
+ALIGN_TITLE={'Mountains_to_Sea_Trail'}
 CANDS=pickle.load(open('cands.pkl','rb'))
 def build_file(m,key,dark):
     D0=dict(load(m)); D0['m']=m
@@ -25,6 +26,9 @@ def build_file(m,key,dark):
     k=pts(m,r['bbox'],file)
     fc=min(2.4,max(1.0,5.2/(48*k*72/.66)))     # copyright ~5pt at smallest size
     Rr=None
+    if D.get('title_bottom') is not None and m in ALIGN_TITLE:      # title block bottom = table bottom
+        tm=np.asarray(render(svg(m,D,f,r['g'] or G,r['lf'],top=r['top'],parts=('table',)),10412/2))<246
+        D['tdy']=(np.where(tm)[0].max()+1)*2-D['title_bottom']
     s=svg(m,D,f,r['g'] or G,r['lf'],top=r['top'],fc=fc,cdy=r['cdy'],Rr=Rr)
     if dark: s=darken(s)
     W,H=PX[key]; mg=round(file[3]*min(W,H))

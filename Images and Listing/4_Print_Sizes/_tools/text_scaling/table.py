@@ -45,6 +45,7 @@ def split_header(tsubs):
     for i in w2: out[i]=move(i,left-x2,lines[1][0]-top2)
     return out
 STRIP_NUMBERS={'Mountains_to_Sea_Trail'}
+TITLE_BLOCK={'Mountains_to_Sea_Trail':(6300,4900)}   # logo + title + subtitle: centers left of x / below y
 def strip_numbers(tsubs):
     """Middle column rows read 'N · NAME': drop the number and the middle dot, re-center NAME."""
     from svgpathtools import parse_path
@@ -94,8 +95,13 @@ def load(m):
         cx=(b[0]+b[2])/2; cy=(b[1]+b[3])/2
         c=next(i for i,(a,z) in enumerate(cols) if a-1<=cx<=z+1); rr=next(i for i,(a,z) in enumerate(rows) if a-1<=cy<=z+1)
         cl.setdefault((gi,c,rr),[]).append(d)
-    rest=[(a,' '.join(d for d,bb in subs if not inside(bb,r))) for a,subs in groups]
-    D=dict(head=head,attrs=[a for a,_ in groups],rest=rest,cl=cl,cols=cols,rows=rows,cr=cr)
+    TB=TITLE_BLOCK.get(m)
+    in_title=(lambda bb: TB is not None and (bb[0]+bb[2])/2<TB[0] and (bb[1]+bb[3])/2>TB[1])
+    rest=[(a,' '.join(d for d,bb in subs if not inside(bb,r) and not in_title(bb))) for a,subs in groups]
+    title=[(a,' '.join(d for d,bb in subs if not inside(bb,r) and in_title(bb))) for a,subs in groups]
+    tbb=[bb for a,subs in groups for d,bb in subs if not inside(bb,r) and in_title(bb)]
+    title_bottom=max(bb[3] for bb in tbb) if tbb else None
+    D=dict(head=head,attrs=[a for a,_ in groups],rest=rest,cl=cl,cols=cols,rows=rows,cr=cr,title=title,title_bottom=title_bottom)
     pickle.dump(D,open(p,'wb')); return D
 def layout(D,f,g,lf,top,Rr=None):
     cols,rows=D['cols'],D['rows']; w=[z-a for a,z in cols]; Rr=(D.get('Rr') or cols[-1][1]) if Rr is None else Rr; T=rows[0][0]
@@ -121,6 +127,9 @@ def svg(m,D,f=1,g=None,lf=1,top=None,fc=1,cdy=0,cmap=None,parts=('rest','table',
     if 'rest' in parts:
         for a,d in D['rest']:
             if d: o.append(f'<g {A(a)}><path d="{d}"/></g>')
+        tdy=D.get('tdy',0)
+        for a,d in D.get('title',[]):
+            if d: o.append(f'<g transform="translate(0,{tdy:.2f})"><g {A(a)}><path d="{d}"/></g></g>')
     if 'table' in parts:
         for k,ds in D['cl'].items():
             tx,ty=M[k]; o.append(f'<g transform="matrix({f},0,0,{f},{tx:.2f},{ty:.2f})"><g {A(D["attrs"][k[0]])}><path d="{" ".join(ds)}"/></g></g>')
