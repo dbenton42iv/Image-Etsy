@@ -1,0 +1,18 @@
+show,table,name,label,type,mile,lat,lon,elev_ft,side
+y,y,SPRINGER MOUNTAIN,,start,0.0,,,3782,auto
+y,y,LONG CREEK FALLS,,waterfall,6.5,,,,auto
+y,y,TOCCOA RIVER BRIDGE,,point,19.8,,,,auto
+y,y,SHALLOWFORD BRIDGE,,point,31.0,,,,auto
+y,y,FALL BRANCH FALLS,,waterfall,44.5,,,,auto
+y,y,GA / TN,,point,,34.9884,-84.5187,,auto
+y,y,BIG FROG MOUNTAIN,,peak,85.0,,,4224,auto
+y,y,OCOEE RIVER,,point,,35.0758,-84.4815,,auto
+y,y,HIWASSEE RIVER,,point,,35.1977,-84.4631,,auto
+y,y,BALD RIVER FALLS,,waterfall,138.0,,,,auto
+y,y,CHEROHALA SKYWAY,,point,160.0,,,,auto
+y,y,FONTANA DAM,,point,,35.4528,-83.8085,,auto
+y,y,NEWTON BALD,,peak,245.0,,,5142,auto
+y,y,SMOKEMONT,,camp,250.0,,,,auto
+y,y,CATALOOCHEE,,point,268.0,,,,auto
+y,y,BIG CREEK,,point,,35.7509,-83.1092,,auto
+y,y,DAVENPORT GAP,,end,288.0,,,1975,auto

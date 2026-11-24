@@ -1,0 +1,43 @@
+PRINT SIZES — 300 DPI JPG (RGB, max quality), white background, © Beech Creek Naturals 2026 on every design
+Each design folder has 6 files. One file covers every print size of the same shape:
+
+  24x36 (36x24 for wide designs)  2:3 ratio  -> 4x6, 8x12, 12x18, 16x24, 20x30, 24x36
+  18x24 (24x18)                   3:4 ratio  -> 6x8, 9x12, 12x16, 18x24
+  16x20 (20x16)                   4:5 ratio  -> 4x5, 8x10, 16x20
+  11x14 (14x11)                   11x14
+  A1 (A1_landscape)               ISO ratio  -> A5, A4, A3, A2, A1
+  5x7   (7x5)                     5x7
+
+FRAME / MAT MARGINS (updated Nov 2026)
+Every file has an even white border on its tightest side, sized for framing and matting:
+  24x36, 16x20 files ... 12.5% of the short side  (3.0" at 24x36, 2.0" at 16x20, 0.5" at 4x6 / 4x5)
+  18x24, 11x14, A1, 5x7 files ... 10% of the short side (1.8" at 18x24, 1.1" at 11x14, 2.3" at A1, 0.5" at 5x7)
+Rule: at the SMALLEST size each file covers, the artwork AND the copyright line sit at least
+0.5" from every paper edge, so a mat or frame lip (normally 1/4" overlap) never touches them
+and at least 1/4" of white still shows inside the mat opening.
+The previous 7%-margin versions are kept in _Previous_7pct_Margins.
+Artwork is scaled to fit, never cropped.
+
+All designs are rendered from vector masters (sharp at any size) except
+Pack_Your_Dreams_Green (the original rectangular layout), which is a 5700 px raster:
+~170 DPI of real detail at 36x24, 220+ DPI at 24x18 and smaller.
+
+_Masters_2026  — source files with the 2026 copyright
+   AT / MST logo posters ............ PDF (vector)
+   Art Loeb, Bartram, Mountains-to-Sea map ... SVG + PDF (traced to vector; disclaimer lines removed from Bartram and MST)
+   Pack Your Dreams NewPack, Sketch .. SVG
+   Pack Your Dreams Circle (Green, NewPack, Sketch) ... SVG — circular badge layout
+   Pack Your Dreams Green (rectangular) ... PNG 300 DPI
+
+_Stickers — circular badges for sticker / print-on-demand upload
+   *_Sticker_4500px.png : transparent background, solid white disc inside the ring (15 in @ 300 DPI)
+   *_Sticker.svg        : same, vector
+   No copyright line on the stickers, since it would fall outside the die-cut edge.
+
+_Home_Print  (added Nov 24 2026) — DIGITAL-DOWNLOAD versions of Bartram, Art Loeb and Mountains-to-Sea
+   Every grey element (labels, mileage tables, icons, compass, small text, copyright) is solid black
+   with a hairline of added weight, and the elevation-profile tint is darkened, so the maps print clearly
+   on home laser/inkjet printers. Same sizes, margins and placement as the files above.
+   These are the JPGs inside 5_Etsy_Listings\digital_files\*_All_Sizes.zip.
+   The design folders above, _Masters_2026 and _Displate keep the original greys for drop-ship partners
+   (Prodigi, Artelo, Displate).

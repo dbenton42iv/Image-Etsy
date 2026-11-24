@@ -1,0 +1,30 @@
+{
+  "title": "Benton MacKaye Trail",
+  "subtitle": "",
+  "total_miles": 288.0,
+  "template": "unconfirmed",
+  "orientation": "unconfirmed",
+  "reverse": false,
+  "year": 2026,
+  "suggested": {
+    "template": "vertical",
+    "orientation": "landscape",
+    "aspect_w_over_h": 1.02,
+    "has_elevation": false
+  },
+  "length_check": {
+    "track_miles": 278.33,
+    "official_miles": 288.0,
+    "difference_pct": 3.36,
+    "scale_factor": 1.03472,
+    "within_tolerance": false,
+    "accepted_by_david": true,
+    "note": "David gave official 288 mi (2026-11-23); scaling accepted"
+  },
+  "dropped_waypoints": [],
+  "approval": null,
+  "source": {
+    "file": "C:\\Users\\dbent\\Downloads\\Benton_MacKaye_Trail.gpx",
+    "see": "sources/Benton_MacKaye_Trail/SOURCE.md"
+  }
+}
